@@ -2,16 +2,16 @@
 
 #define IRIS_SWAP_INTERVAL_VSYNC 1
 
-Iris_Gfx_Status iris_gfx_create_window(struct iris_window *window, uint32_t flags,
-                                        char *title, size_t w, size_t h)
+Iris_Gfx_Status init_iris_window(struct iris_window *window, char *title,
+                                        uint32_t flags, size_t w, size_t h)
 {
-        GLFWmonitor *monitor = glfwGetPrimaryMonitor();
-
+        GLFWmonitor *monitor = NULL;
         /* set default title */
         if (!title)
                 title = "iris window";
 
         if (flags & IRIS_WINDOW_MAKE_FULLSCREEN) {
+                monitor = glfwGetPrimaryMonitor();
                 const GLFWvidmode *mode = glfwGetVideoMode(monitor);
                 /* update width and height values */
                 w = mode->width;
@@ -25,7 +25,7 @@ Iris_Gfx_Status iris_gfx_create_window(struct iris_window *window, uint32_t flag
         return IRIS_GFX_SUCCESS;
 }
 
-Iris_Gfx_Status iris_gfx_destroy_window(struct iris_window *window)
+Iris_Gfx_Status close_iris_window(struct iris_window *window)
 {
         glfwDestroyWindow(window->api);
 

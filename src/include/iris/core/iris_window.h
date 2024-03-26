@@ -22,7 +22,7 @@ enum iris_gfx_status_codes {
 #define IRIS_GFX_UNKOWN IRIS_GFX_N_STATUS
 };
 
-Iris_Gfx_Status iris_gfx_create_window(struct iris_window *window, uint32_t flags, char *title, size_t w, size_t h);
-Iris_Gfx_Status iris_gfx_destroy_window(struct iris_window *window);
+Iris_Gfx_Status init_iris_window(struct iris_window *window, char *title, uint32_t flags, size_t w, size_t h);
+Iris_Gfx_Status close_iris_window(struct iris_window *window);
 
 #endif /* IRIS_ENGINE_CORE_IRIS_WINDOW_H */

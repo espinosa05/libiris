@@ -15,9 +15,10 @@ enum iris_engine_status_codes {
 };
 
 typedef struct iris_engine {
-        struct iris_window *window;
+        struct iris_window main_window;
 } Iris_Engine;
 
-Iris_Status init_iris_engine();
+Iris_Status init_iris_engine(Iris_Engine *engine);
+Iris_Status close_iris_engine(Iris_Engine *engine);
 
 #endif /* IRIS_ENGINE_H */

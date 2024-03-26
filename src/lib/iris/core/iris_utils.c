@@ -1,7 +1,6 @@
 #include "../../../include/iris/core/iris_utils.h"
 
 #include <stdio.h>
-#include <stdarg.h>
 
 void iris_log(char *tag, char *fmt, ...)
 {
@@ -9,5 +8,6 @@ void iris_log(char *tag, char *fmt, ...)
         va_start(ap, fmt);
         fprintf(stderr, "[%s] ", tag);
         vfprintf(stderr, fmt, ap);
+        putc('\n', stderr);
         va_end(ap);
 }
