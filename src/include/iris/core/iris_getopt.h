@@ -21,7 +21,6 @@
 }
 
 
-
 #define REQUIRED_ARGUMENT 1
 #define NO_ARGUMENT 0
 /* definition for option value */
