@@ -27,9 +27,12 @@ struct iris_opt_result iris_getopt(struct iris_opt *opt_arr, int *counter,
                 return res;
 
         /* is long argument? (double dash) */
-        if (arg[1] == '-') {
+        if (arg[1] == '-')
+        {
                 opt_entry = load_long_opt(arg, opt_arr);
-        } else {
+        }
+        else
+        {
                 opt_entry = load_short_opt(arg, opt_arr);
         }
 
@@ -38,11 +41,15 @@ struct iris_opt_result iris_getopt(struct iris_opt *opt_arr, int *counter,
         res.opt_val = opt_entry.out_val;
 
 
-        if (opt_entry.has_arg) {
-                if (argc >= *counter + 1) {
+        if (opt_entry.has_arg)
+        {
+                if (argc >= *counter + 1)
+                {
                         res.opt_arg = argv[*counter];
                         (*counter)++; /* skip option */
-                } else {
+                }
+                else
+                {
                         res.opt_val = INVALID_OPT_ARG;
                 }
         }
@@ -63,8 +70,10 @@ static struct iris_opt load_long_opt(char *arg, struct iris_opt *opts)
 
         arg += LONG_ARG_OFFSET;
 
-        while (!is_last_iris_opt(opts[current])) {
-                if (0 == strcmp(opts[current].long_opt, arg)) {
+        while (!is_last_iris_opt(opts[current]))
+        {
+                if (0 == strcmp(opts[current].long_opt, arg))
+                {
                         ret = opts[current];
                         break;
                 }
@@ -83,8 +92,10 @@ static struct iris_opt load_short_opt(char *arg, struct iris_opt *opts)
         arg += SHORT_ARG_OFFSET;
         short_arg = arg[0];
 
-        while (!is_last_iris_opt(opts[current])) {
-                if (short_arg == opts[current].short_opt) {
+        while (!is_last_iris_opt(opts[current]))
+        {
+                if (short_arg == opts[current].short_opt)
+                {
                         ret = opts[current];
                         break;
                 }

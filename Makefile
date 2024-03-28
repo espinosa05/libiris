@@ -1,17 +1,21 @@
 CC=gcc
 CFLAGS=-Wall -O0 -ggdb
-IRIS_FLAGS=-lGL -lglfw
+OPT_CFLAGS=-Wall -Os
+IRIS_FLAGS=-lGL -DLOG -lglfw -lGLEW
+
 SOFLAGS=-fPIC -shared
 
 IRIS_SRCD=src/lib/iris/
 IRIS_INCD=src/include/
 TMP_DIR=tmp/
 
+
 IRIS_SRC=					\
 	$(IRIS_SRCD)iris.c			\
     	$(IRIS_SRCD)core/iris_getopt.c		\
 	$(IRIS_SRCD)core/iris_window.c		\
 	$(IRIS_SRCD)core/iris_utils.c		\
+	$(IRIS_SRCD)core/iris_shader.c		\
 	$(IRIS_SRCD)core/window/iris_audio.c	\
 	$(IRIS_SRCD)core/window/iris_gfx.c	\
 	$(IRIS_SRCD)core/window/iris_input.c
