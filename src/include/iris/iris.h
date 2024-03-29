@@ -15,5 +15,6 @@ typedef struct iris_engine {
 
 Iris_Status iris_engine_init(Iris_Engine *engine, char *instance_id);
 Iris_Status iris_engine_close(Iris_Engine *engine);
+Iris_Status iris_engine_poll_events(Iris_Engine *engine);
 
 #endif /* IRIS_ENGINE_H */

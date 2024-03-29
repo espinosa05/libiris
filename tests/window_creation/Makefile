@@ -1,5 +1,5 @@
 CC=gcc
-CFLAGS=-Wall -Os -liris
+CFLAGS=-Wall -lglfw -Os -liris
 
 all: window_creation
 clean: window_creation

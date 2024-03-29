@@ -11,7 +11,7 @@ typedef ssize_t Iris_Status;
 enum iris_engine_status_codes {
         IRIS_ENGINE_SUCCESS = 0,
         IRIS_ENGINE_FAILED_TO_START_GLFW,
-        IRIS_ENGINE_FAILED_TO_START_GLAD,
+        IRIS_ENGINE_FAILED_TO_START_GL_API,
 
         IRIS_ENGINE_N_STATUS,
 #define IRIS_ENGINE_UNKOWN IRIS_ENGINE_N_STATUS
