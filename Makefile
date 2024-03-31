@@ -1,14 +1,17 @@
 CC=gcc
-CFLAGS=-Wall -O0 -ggdb
+CFLAGS=-Wall -O3 -ggdb
 OPT_CFLAGS=-Wall -Os
 IRIS_FLAGS=-lGL -DLOG -lglfw -lGLEW
 
 SOFLAGS=-fPIC -shared
 
+VENDOR_INC_BASE_D=src/vendor/
+
+STB_D=$(VENDOR_INC_BASE_D)stb_image/
+
 IRIS_SRCD=src/lib/iris/
 IRIS_INCD=src/include/
 TMP_DIR=tmp/
-
 
 IRIS_SRC=					\
 	$(IRIS_SRCD)iris.c			\
@@ -28,6 +31,7 @@ clean: $(TMP_DIR)
 
 install: $(TMP_DIR)libiris.so
 	cp -r $(IRIS_INCD)* /usr/include/
+	cp  -r $(VENDOR_INC_BASE_D) /usr/include
 	cp $(TMP_DIR)libiris.so /usr/lib/
 
 # build shared library
