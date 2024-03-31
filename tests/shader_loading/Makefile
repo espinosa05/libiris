@@ -1,5 +1,5 @@
 CC=gcc
-CFLAGS=-Wall -Os -liris
+CFLAGS=-Wall -O3 -liris
 
 all: shader_loading
 clean: shader_loading

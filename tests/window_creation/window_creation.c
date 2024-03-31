@@ -12,7 +12,7 @@ void close_test(GLFWwindow* window, int key, int scancode, int action, int mods)
                         glfwSetWindowShouldClose(window, true);
                         break;
                 default:
-                        printf("keycode:%d\n", key);
+                        printf("key: %c (%d)\n", key, key);
                 }
         }
 }
